@@ -10,5 +10,5 @@ public interface RecetaRepositorioPort {
     List<Receta> obtenetTodos();
     Optional<Receta> obtenerPorId(Long id);
     Optional<Receta> actualizar(Receta receta);
-    Boolean eliminar(Long id);
+    boolean eliminar(Long id);
 }

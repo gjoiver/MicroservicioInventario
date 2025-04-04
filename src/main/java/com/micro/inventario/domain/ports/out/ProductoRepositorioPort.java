@@ -10,5 +10,5 @@ public interface ProductoRepositorioPort {
    List<Producto> obtenerTodos();
    Optional<Producto> obtenerPorId(Long id);
    Optional<Producto> actualizar(Producto producto);
-   Boolean eliminar(Long id);
+   boolean eliminar(Long id);
 }
