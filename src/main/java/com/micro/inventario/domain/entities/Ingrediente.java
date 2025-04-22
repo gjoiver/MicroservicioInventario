@@ -1,47 +1,36 @@
 package com.micro.inventario.domain.entities;
 
 public class Ingrediente {
-    private Long id;
-    private String nombre;
-    private String unidad;
-    private Integer cantidadDisponible;
+    private final Long id;
+    private final String nombre;
+    private int stock;
 
-    public Ingrediente(Long id, String nombre, String unidad, Integer cantidadDisponible) {
+    public Ingrediente(Long id, String nombre, int stock) {
         this.id = id;
         this.nombre = nombre;
-        this.unidad = unidad;
-        this.cantidadDisponible = cantidadDisponible;
+        this.stock = stock;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public int getStock() {
+        return stock;
     }
 
-    public String getUnidad() {
-        return unidad;
+    public void usarStock(int cantidad) {
+        if (cantidad > stock) {
+            throw new IllegalArgumentException("Stock insuficiente para el ingrediente: " + nombre);
+        }
+        this.stock -= cantidad;
     }
 
-    public void setUnidad(String unidad) {
-        this.unidad = unidad;
-    }
-
-    public Integer getCantidadDisponible() {
-        return cantidadDisponible;
-    }
-
-    public void setCantidadDisponible(Integer cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
+    public void surtirStock(int cantidad) {
+        this.stock += cantidad;
     }
 }

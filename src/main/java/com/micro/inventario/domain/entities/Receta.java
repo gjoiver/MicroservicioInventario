@@ -2,39 +2,28 @@ package com.micro.inventario.domain.entities;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Receta {
-    private Long id;
-    private String nombre;
-    private HashMap<Ingrediente, Integer> ingredientes;
+    private final Long id;
+    private final Long idProducto;
+    private final Map<Long, Integer> ingredientes;
 
-    public Receta(Long id, String nombre, HashMap<Ingrediente, Integer> ingredientes) {
+    public Receta(Long id, Long idProducto, Map<Long, Integer> ingredientes) {
         this.id = id;
-        this.nombre = nombre;
+        this.idProducto = idProducto;
         this.ingredientes = ingredientes;
+    }
+
+    public Map<Long, Integer> getIngredientes() {
+        return ingredientes;
+    }
+
+    public Long getIdProducto() {
+        return idProducto;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public HashMap<Ingrediente, Integer> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(HashMap<Ingrediente, Integer> ingredientes) {
-        this.ingredientes = ingredientes;
     }
 }

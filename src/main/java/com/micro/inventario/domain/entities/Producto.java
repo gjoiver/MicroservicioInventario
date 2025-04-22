@@ -5,9 +5,9 @@ public class Producto {
     private String nombre;
     private Receta receta;
 
-    public Producto(String nombre, Long id, Receta receta) {
-        this.nombre = nombre;
+    public Producto(Long id, String nombre, Receta receta) {
         this.id = id;
+        this.nombre = nombre;
         this.receta = receta;
     }
 
@@ -15,23 +15,11 @@ public class Producto {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Receta getReceta() {
         return receta;
-    }
-
-    public void setReceta(Receta receta) {
-        this.receta = receta;
     }
 }
