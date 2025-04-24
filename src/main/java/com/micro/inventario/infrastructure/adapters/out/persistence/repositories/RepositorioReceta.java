@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RepositorioReceta extends JpaRepository<RecetaEntity, Long> {
+    RecetaEntity findByIdProducto(Long idProducto);
 
 }

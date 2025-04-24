@@ -31,7 +31,7 @@ public class ServicioInventario implements ProcesarPedidoUseCase {
 
     @Override
     @Transactional
-    public Boolean ProcesarPedido(Pedido pedido) {}
+    public Boolean procesarPedido(Pedido pedido) {}
 
     private boolean validarIngredientes(Pedido pedido) {
         Map<Long, Integer> ingredientesRequeridos = calcularIngredientesRequeridos(pedido);
@@ -54,7 +54,7 @@ public class ServicioInventario implements ProcesarPedidoUseCase {
             if (ingredienteModel.isPresent()) {
                 Ingrediente ingrediente = ingredienteModel.get();
                 ingrediente.usarStock(entry.getValue());
-                actualizarInventarioPort.actualizarInventario(ingrediente);
+                actualizarInventarioPort.actualizarIngrediente(ingrediente);
             }
         }
     }
